@@ -39,8 +39,8 @@ public class OrderController {
         orderComponent.deleteOrderById(id);
     }
 
-    @ExceptionHandler(NoSuchElementException.class)
-    public ResponseEntity<ErrorMessage> handleException(NoSuchElementException exception) {
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<ErrorMessage> handleException(IllegalStateException exception) {
         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(new ErrorMessage(exception.getMessage()));

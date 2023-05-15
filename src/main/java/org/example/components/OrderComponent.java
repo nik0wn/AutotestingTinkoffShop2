@@ -2,6 +2,7 @@ package org.example.components;
 
 import org.example.entity.Order;
 import org.example.enums.ProductType;
+import org.example.repositories.AccountRepository;
 import org.example.repositories.OrderRepository;
 import org.example.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,10 @@ public class OrderComponent {
 
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    AccountComponent accountComponent ;
+    @Autowired
+    AccountRepository accountRepository;
 
 
     public List<Order> getListOfOrders() {
@@ -44,8 +49,17 @@ public class OrderComponent {
                              String productName) {
         var user = userComponent.getOrCreateUser(userName, userPhone);
         var product = productComponent.getProductByName(productName);
+        var account = accountComponent.getOrCreateAccount(userPhone);
 
         if (product.getProductType() == ProductType.GOOD) {
+            if (product.getPrice() > account.getBalance()){
+                throw new IllegalStateException(
+                        "Операция не может быть выполнена, недостаточно средств на счете."
+                );
+            }
+            account.setBalance(account.getBalance() - product.getPrice());
+            accountRepository.save(account);
+
             if (product.getRemainder() < 1) {
                 throw new IllegalStateException(
                         String.format(
@@ -55,10 +69,12 @@ public class OrderComponent {
             }
             product.setRemainder(product.getRemainder() - 1);
             productRepository.save(product);
+
         }
+        account.setBalance(account.getBalance() - product.getPrice());
+        accountRepository.save(account);
         var order = new Order(user.getId(), product.getId());
         orderRepository.save(order);
         return order;
     }
-
 }
