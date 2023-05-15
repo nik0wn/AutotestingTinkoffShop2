@@ -51,7 +51,7 @@ public class OrderComponent {
         var product = productComponent.getProductByName(productName);
         var account = accountComponent.getOrCreateAccount(userPhone);
 
-        if (product.getProductType() == ProductType.GOOD) {
+        if (product.getProductType() == ProductType.GOOD || product.getProductType() == ProductType.SERVE) {
             if (product.getPrice() > account.getBalance()){
                 throw new IllegalStateException(
                         "Операция не может быть выполнена, недостаточно средств на счете."
