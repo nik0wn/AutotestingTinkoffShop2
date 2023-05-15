@@ -1,10 +1,12 @@
 package org.example.components;
 
 import org.example.entity.User;
+import org.example.repositories.AccountRepository;
 import org.example.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -12,6 +14,8 @@ import java.util.NoSuchElementException;
 public class UserComponent {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    AccountRepository accountRepository;
 
     public User getOrCreateUser(String name, String phone) {
         var user = userRepository.findByPhone(phone);
@@ -37,9 +41,9 @@ public class UserComponent {
                 String.format(
                         "Пользователя с телефоном '%s' не существует!", phone));
     }
-
+    @Transactional
     public void deleteUserById(Long id) {
+        accountRepository.deleteByUserId(id);
         userRepository.deleteById(id);
-
     }
 }

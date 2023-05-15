@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Long> {
     Account findByUserId(Long userId);
+
+    void deleteByUserId(Long userId);
 }
