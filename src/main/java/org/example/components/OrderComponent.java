@@ -57,9 +57,6 @@ public class OrderComponent {
                         "Операция не может быть выполнена, недостаточно средств на счете."
                 );
             }
-            account.setBalance(account.getBalance() - product.getPrice());
-            accountRepository.save(account);
-
             if (product.getRemainder() < 1) {
                 throw new IllegalStateException(
                         String.format(
@@ -69,10 +66,9 @@ public class OrderComponent {
             }
             product.setRemainder(product.getRemainder() - 1);
             productRepository.save(product);
-
+            account.setBalance(account.getBalance() - product.getPrice());
+            accountRepository.save(account);
         }
-        account.setBalance(account.getBalance() - product.getPrice());
-        accountRepository.save(account);
         var order = new Order(user.getId(), product.getId());
         orderRepository.save(order);
         return order;

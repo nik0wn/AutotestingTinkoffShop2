@@ -21,8 +21,7 @@ public class AccountComponent {
         }
         var account = accountRepository.findByUserId(user.getId());
         if(account == null){
-            account = new Account();
-            account.setUserId(user.getId());
+            account = new Account(user.getId());
             account.setBalance(account.getBalance() + balance);
             accountRepository.save(account);
             return account;
@@ -35,8 +34,7 @@ public class AccountComponent {
         var user = userComponent.getUserByPhone(phone);
         var account = accountRepository.findByUserId(user.getId());
         if(account == null){
-            account = new Account();
-            account.setUserId(user.getId());
+            account = new Account(user.getId());
             accountRepository.save(account);
             return account;
         }
