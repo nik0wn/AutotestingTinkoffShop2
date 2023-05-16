@@ -1,6 +1,8 @@
+import org.example.components.AccountComponent;
 import org.example.components.OrderComponent;
 import org.example.components.ProductComponent;
 import org.example.components.UserComponent;
+import org.example.repositories.AccountRepository;
 import org.example.repositories.OrderRepository;
 import org.example.repositories.ProductRepository;
 import org.example.repositories.UserRepository;
@@ -35,10 +37,16 @@ public class OrderComponentTest extends AbstractTest {
 
     @Autowired
     OrderComponent orderComponent;
+    @Autowired
+    AccountComponent accountComponent;
+    @Autowired
+    AccountRepository accountRepository;
+
 
     @BeforeEach
     void setup() {
         orderRepository.deleteAll();
+        accountRepository.deleteAll();
         userRepository.deleteAll();
         productRepository.deleteAll();
     }
