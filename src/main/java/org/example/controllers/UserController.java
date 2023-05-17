@@ -17,6 +17,15 @@ public class UserController {
     @Autowired
     UserComponent userComponent;
 
+    @PostMapping("addUsers")
+    @Operation(summary = "Добавление нового пользователя")
+    public  User postNewUsers(
+            @RequestParam String name,
+            @RequestParam String phone
+    ){
+        return userComponent.postAddNewUsers(name, phone);
+    }
+
     @GetMapping("allUsers")
     @Operation(summary = "Получение всех пользователей")
     public List<User> getAllUsers() {

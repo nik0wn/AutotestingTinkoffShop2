@@ -74,6 +74,7 @@ public class OrderComponentTest extends AbstractTest {
         var authorId = order.getAuthorId();
 
         var user = userRepository.findById(authorId);
+
         assertThat(user).isNotEmpty();
         assertThat(user.get().getPhone()).isEqualTo(userPhone);
         assertThat(user.get().getName()).isEqualTo(userName);

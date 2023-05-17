@@ -17,6 +17,18 @@ public class UserComponent {
     @Autowired
     AccountRepository accountRepository;
 
+    public User postAddNewUsers(String name, String phone){
+        var user = userRepository.findByPhone(phone);
+        if (user != null) {
+            throw new NoSuchElementException(
+                    String.format(
+                            "Пользователя с телефоном '%s' уже существует!", phone));
+        }
+        var newUser = new User(name, phone);
+        userRepository.save(newUser);
+        return newUser;
+    }
+
     public User getOrCreateUser(String name, String phone) {
         var user = userRepository.findByPhone(phone);
         if (user != null) {
