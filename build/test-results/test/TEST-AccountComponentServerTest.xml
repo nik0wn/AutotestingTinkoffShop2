@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AccountComponentServerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-17T17:43:29" hostname="Groot---Mac.local" time="0.807">
+  <properties/>
+  <testcase name="errorReplenishmentBalance()" classname="AccountComponentServerTest" time="0.807"/>
+  <system-out><![CDATA[21:43:30.381 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Get connection for route {}->http://localhost:8080
+21:43:30.395 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator - Connecting to localhost:8080
+21:43:30.402 [Test worker] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: ignoreCookies
+21:43:30.402 [Test worker] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+21:43:30.402 [Test worker] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication - Target auth state: UNCHALLENGED
+21:43:30.402 [Test worker] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication - Proxy auth state: UNCHALLENGED
+21:43:30.402 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Attempt 1 to execute request
+21:43:30.403 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Sending request: PUT /replenishmentBalance?phone=89128700008&balance=100 HTTP/1.1
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "PUT /replenishmentBalance?phone=89128700008&balance=100 HTTP/1.1[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "Accept: */*[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "Content-Length: 0[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "Host: localhost:8080[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "Connection: Keep-Alive[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "User-Agent: Apache-HttpClient/4.5.13 (Java/19.0.2)[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "Accept-Encoding: gzip,deflate[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.wire -  >> "[\r][\n]"
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> PUT /replenishmentBalance?phone=89128700008&balance=100 HTTP/1.1
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> Accept: */*
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> Content-Length: 0
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> Host: localhost:8080
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> Connection: Keep-Alive
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> User-Agent: Apache-HttpClient/4.5.13 (Java/19.0.2)
+21:43:30.403 [Test worker] DEBUG org.apache.http.headers - >> Accept-Encoding: gzip,deflate
+21:43:30.415 [Test worker] DEBUG org.apache.http.wire -  << "HTTP/1.1 404 [\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "Content-Type: application/json[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "Transfer-Encoding: chunked[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "Date: Wed, 17 May 2023 17:43:30 GMT[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "Keep-Alive: timeout=60[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "Connection: keep-alive[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.wire -  << "[\r][\n]"
+21:43:30.416 [Test worker] DEBUG org.apache.http.impl.conn.DefaultClientConnection - Receiving response: HTTP/1.1 404 
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << HTTP/1.1 404 
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << Content-Type: application/json
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << Transfer-Encoding: chunked
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << Date: Wed, 17 May 2023 17:43:30 GMT
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << Keep-Alive: timeout=60
+21:43:30.416 [Test worker] DEBUG org.apache.http.headers - << Connection: keep-alive
+21:43:30.418 [Test worker] DEBUG org.apache.http.impl.client.DefaultHttpClient - Connection can be kept alive for 60000 MILLISECONDS
+21:43:30.425 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsing response as: application/json
+21:43:30.425 [Test worker] DEBUG io.restassured.internal.RequestSpecificationImpl$RestAssuredHttpBuilder - Parsed data to instance of: class org.apache.http.conn.EofSensorInputStream
+21:43:30.445 [Test worker] DEBUG org.apache.http.wire -  << "91[\r][\n]"
+21:43:30.445 [Test worker] DEBUG org.apache.http.wire -  << "{"id":"442dcbe8-8fc2-4555-a0d2-50491cb8aaa2","message":"[0xd0][0x9f][0xd0][0xbe][0xd0][0xbb][0xd1][0x8c][0xd0][0xb7][0xd0][0xbe][0xd0][0xb2][0xd0][0xb0][0xd1][0x82][0xd0][0xb5][0xd0][0xbb][0xd1][0x8f] [0xd1][0x81] [0xd1][0x82][0xd0][0xb5][0xd0][0xbb][0xd0][0xb5][0xd1][0x84][0xd0][0xbe][0xd0][0xbd][0xd0][0xbe][0xd0][0xbc] '89128700008' [0xd0][0xbd][0xd0][0xb5] [0xd1][0x81][0xd1][0x83][0xd1][0x89][0xd0][0xb5][0xd1][0x81][0xd1][0x82][0xd0][0xb2][0xd1][0x83][0xd0][0xb5][0xd1][0x82]!"}"
+21:43:30.445 [Test worker] DEBUG org.apache.http.wire -  << "[\r][\n]"
+21:43:30.445 [Test worker] DEBUG org.apache.http.wire -  << "0[\r][\n]"
+21:43:30.445 [Test worker] DEBUG org.apache.http.wire -  << "[\r][\n]"
+21:43:30.446 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@26c47874
+21:43:30.446 [Test worker] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager - Connection can be kept alive for 60000 MILLISECONDS
+HTTP/1.1 404 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Wed, 17 May 2023 17:43:30 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "id": "442dcbe8-8fc2-4555-a0d2-50491cb8aaa2",
+    "message": "Пользователя с телефоном '89128700008' не существует!"
+}
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
